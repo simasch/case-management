@@ -1,15 +1,10 @@
-# Vaadin/jOOQ Template
+# Case Management Application
 
 ## Introduction
 
-This is a template project, based on my experience and my opinion, that shows how to  integrate [Vaadin](https://vaadin.com) and
-[jOOQ](https://jooq.org) and how to test it with [Karibu Testing](https://github.com/mvysny/karibu-testing) and [Playwright](https://playwright.dev).
+This is a case management application built with [Vaadin](https://vaadin.com) and [jOOQ](https://jooq.org), demonstrating best practices for integrating these technologies with comprehensive testing using [Karibu Testing](https://github.com/mvysny/karibu-testing) and [Playwright](https://playwright.dev).
 
-It uses [Testcontainers](https://testcontainers.com) for generating the jOOQ classes and integration testing and Flyway for the database 
-migrations.
-
-This project can be used as a starting point to create your own Vaadin application with jOOQ.
-It contains all the necessary configurations and some examples to get you started.
+The application uses [Testcontainers](https://testcontainers.com) for generating the jOOQ classes and integration testing, and Flyway for database migrations.
 
 ## Running the Application
 
@@ -37,10 +32,10 @@ The Playwright test uses [Mopo](https://github.com/viritin/mopo), which simplifi
 To create a production build, call `mvnw clean package -Pproduction` (Windows), 
 or `./mvnw clean package -Pproduction` (Mac & Linux).
 
-This will build a JAR file with all the dependencies and front-end resources, ready to be deployed. You can find 
+This will build a JAR file with all the dependencies and front-end resources, ready to be deployed. You can find
 the file in the `target` folder after the build completes.
 
-Once the JAR file is built, you can run it using `java -jar target/vaadin-jooq-template-<version>.jar`
+Once the JAR file is built, you can run it using `java -jar target/case-management-1.0-SNAPSHOT.jar`
 
 ## Project structure
 
@@ -53,6 +48,15 @@ Once the JAR file is built, you can run it using `java -jar target/vaadin-jooq-t
 The example uses JWT authentication for a better developer experience (for example, you don't have to re-log in during
 development).
 Read more in the blog of [Matti Tahvonen](https://vaadin.com/blog/jwt-authentication-with-vaadin-flow-for-better-developer-and-user-experience).
+
+## Documentation
+
+Comprehensive documentation is available in the `docs/` folder:
+
+- [Vision and Overview](docs/vision.md) - Project vision, goals, and high-level overview
+- [Requirements Catalog](docs/requirements-catalog.md) - Detailed functional and non-functional requirements
+- [Entity Model](docs/entity-model.md) - Database schema, entity definitions, and ER diagrams
+- [Use Case Specification](docs/use-case-specification.md) - Detailed use cases with scenarios and business rules
 
 ## Useful links
 
