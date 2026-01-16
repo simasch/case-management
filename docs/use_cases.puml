@@ -1,0 +1,119 @@
+@startuml use_cases
+!theme plain
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+title Case Management System - Use Case Diagram
+
+' Define Actors
+actor "Service Agent" as SA
+actor "Service Manager" as SM
+
+' Package for Case Management
+package "Case Management" {
+    usecase (UC-001\nCreate Case) as UC001
+    usecase (UC-002\nAssociate Customer\nto Case) as UC002
+    usecase (UC-003\nTrack Case Status) as UC003
+    usecase (UC-004\nSet Case Priority) as UC004
+    usecase (UC-005\nUpdate Case) as UC005
+    usecase (UC-006\nAssign Case) as UC006
+    usecase (UC-007\nReassign Case) as UC007
+    usecase (UC-008\nClose Case) as UC008
+    usecase (UC-009\nView Case\nAudit Trail) as UC009
+    usecase (UC-010\nTag Cases) as UC010
+    usecase (UC-011\nCategorize Cases) as UC011
+    usecase (UC-028\nManage Case\nWorkflow) as UC028
+    usecase (UC-029\nTrack Case\nProgress) as UC029
+}
+
+' Package for Case Documentation
+package "Case Documentation" {
+    usecase (UC-012\nAdd Case Notes) as UC012
+    usecase (UC-013\nAdd Case Comments) as UC013
+    usecase (UC-014\nUpload Case\nAttachments) as UC014
+    usecase (UC-015\nView Case\nAttachments) as UC015
+    usecase (UC-016\nView Case History) as UC016
+}
+
+' Package for Case Search & Filter
+package "Case Search & Filter" {
+    usecase (UC-017\nSearch Cases\nby Status) as UC017
+    usecase (UC-018\nSearch Cases\nby Priority) as UC018
+    usecase (UC-019\nSearch Cases\nby Customer) as UC019
+    usecase (UC-020\nSearch Cases\nby Assignee) as UC020
+    usecase (UC-021\nSearch Cases\nby Tags) as UC021
+    usecase (UC-022\nFilter Cases\nby Date Range) as UC022
+}
+
+' Package for Customer Management
+package "Customer Management" {
+    usecase (UC-023\nCreate Customer\nRecord) as UC023
+    usecase (UC-024\nCreate Organization\nRecord) as UC024
+    usecase (UC-025\nUpdate Customer\nRecord) as UC025
+    usecase (UC-026\nLink Cases to\nCustomer) as UC026
+    usecase (UC-027\nView Customer\nCase History) as UC027
+}
+
+' Service Agent relationships
+SA --> UC001
+SA --> UC002
+SA --> UC004
+SA --> UC005
+SA --> UC008
+SA --> UC010
+SA --> UC011
+SA --> UC012
+SA --> UC013
+SA --> UC014
+SA --> UC015
+SA --> UC016
+SA --> UC017
+SA --> UC018
+SA --> UC019
+SA --> UC021
+SA --> UC023
+SA --> UC024
+SA --> UC025
+SA --> UC026
+SA --> UC027
+SA --> UC029
+
+' Service Manager relationships
+SM --> UC003
+SM --> UC006
+SM --> UC007
+SM --> UC009
+SM --> UC020
+SM --> UC022
+SM --> UC028
+
+' Include relationships (dependencies)
+UC001 ..> UC002 : <<include>>
+UC001 ..> UC004 : <<include>>
+UC001 ..> UC011 : <<include>>
+UC006 ..> UC001 : <<extend>>
+UC007 ..> UC006 : <<extend>>
+UC008 ..> UC012 : <<include>>
+UC026 ..> UC002 : <<include>>
+UC029 ..> UC003 : <<include>>
+
+' Notes for key use cases
+note right of UC001
+  Creates new service case
+  with customer association,
+  priority, and category
+end note
+
+note right of UC009
+  Full audit trail showing
+  all changes with user,
+  timestamp, and details
+end note
+
+note bottom of UC028
+  Defines workflow stages
+  for consistent case
+  processing
+end note
+
+@enduml
