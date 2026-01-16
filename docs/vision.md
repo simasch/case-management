@@ -11,6 +11,6 @@ Build a customer service case management application.
 - Document Cases: Add notes, comments, and attachments to maintain comprehensive case history
 - Attach Documents: Upload, store, and manage documents associated with cases
 - Search Cases: Query and filter cases by status, priority, customer, assignee, tags, and date ranges
-    - Maintain customer records (individuals and organizations)
+- Maintain customer records (individuals and organizations)
 - Link multiple cases to customers for relationship tracking
 
